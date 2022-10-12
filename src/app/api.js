@@ -9,7 +9,8 @@ const CreateBaseQuery = {
     //  headers.set('x-auth-token', authToken);
     //  headers.set('x-guest-token', guestToken);
     //}
-    return { ...headers, 'Access-Control-Allow-Origin': '*' };
+    headers.set('Access-Control-Allow-Origin', '*');
+    return headers;
   },
 };
 
