@@ -1,9 +1,15 @@
 import { configureStore } from '@reduxjs/toolkit';
 import { setupListeners } from '@reduxjs/toolkit/query';
 import { api } from 'app/api';
+import connectionReducer from 'features/webSockets/connectionSlice';
+import searchReducer from 'features/searches/searchSlice';
+import productsReducer from 'features/lists/productsSlice';
 
 export const store = configureStore({
   reducer: {
+    connection: connectionReducer,
+    search: searchReducer,
+    products: productsReducer,
     [api.reducerPath]: api.reducer,
   },
   // Adding the api middleware enables caching, invalidation, polling,

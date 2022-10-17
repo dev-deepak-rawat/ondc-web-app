@@ -1,6 +1,11 @@
 .productContainer {
   width: 250px;
   padding-bottom: 20px;
+  cursor: pointer;
+}
+
+.productContainer:hover {
+  opacity: 0.8;
 }
 
 .img {

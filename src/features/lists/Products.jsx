@@ -1,5 +1,5 @@
-import Product from 'features/search/Product';
-import styles from 'features/search/Products.module.css';
+import Product from 'features/lists/Product';
+import styles from 'features/lists/Products.module.css';
 
 export default function Products({ products = [] }) {
   return (

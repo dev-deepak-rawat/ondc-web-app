@@ -28,8 +28,14 @@ export const api = createApi({
         };
       },
     }),
-    getTexts: builder.query({
-      query: () => '/texts',
+    select: builder.mutation({
+      query(body) {
+        return {
+          url: '/select',
+          method: 'POST',
+          body,
+        };
+      },
     }),
     //getCartItems: builder.query({
     //  query: () => '/api/v2/cart_items?source=cart&platform=app&os=android',
@@ -61,4 +67,4 @@ export const api = createApi({
 
 // Export hooks for usage in functional components, which are
 // auto-generated based on the defined endpoints
-export const { useSearchMutation, useGetTextsQuery } = api;
+export const { useSearchMutation, useSelectMutation } = api;
