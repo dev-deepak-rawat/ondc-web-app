@@ -1,0 +1,27 @@
+.productContainer {
+  width: 250px;
+  padding-bottom: 20px;
+  cursor: pointer;
+}
+
+.productContainer:hover {
+  opacity: 0.8;
+}
+
+.img {
+  max-width: 220px;
+  height: 180px;
+}
+
+.title {
+  font-size: 20px;
+  font-weight: 300;
+  color: #666;
+  padding: 2px 20px;
+  height: 60px;
+  overflow: hidden;
+}
+
+.price {
+
+}

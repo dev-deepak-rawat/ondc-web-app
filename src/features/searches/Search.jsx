@@ -47,6 +47,7 @@ export default function Search() {
         onSearch={onSearch}
         style={{ width: 400 }}
         loading={showSearchLoader}
+        autoFocus
       />
     </div>
   );

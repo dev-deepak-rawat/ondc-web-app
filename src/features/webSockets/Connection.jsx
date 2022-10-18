@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { isJsonString } from 'app/utils';
 import { addNewProducts } from 'features/lists/productsSlice';
 import { selectTransactionId } from 'features/webSockets/connectionSlice';
+import { setCartItem } from 'features/carts/cartSlice';
 
 export default function Connection({ cable }) {
   const dispatch = useDispatch();
@@ -14,6 +15,7 @@ export default function Connection({ cable }) {
         { channel: 'TransactionsChannel', transaction_id: transactionId },
         {
           received: (result) => {
+            console.log({ result });
             if (!isJsonString(result)) return;
             const parsedResult = JSON.parse(result);
             console.log({ parsedResult });
@@ -21,6 +23,12 @@ export default function Connection({ cable }) {
             switch (action) {
               case 'search':
                 dispatch(addNewProducts(payload));
+                break;
+              case 'select':
+                console.log('connectionSlice cart', { payload });
+                dispatch(setCartItem(payload));
+                break;
+              case 'init':
                 break;
               default:
                 return;

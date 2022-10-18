@@ -4,12 +4,14 @@ import { api } from 'app/api';
 import connectionReducer from 'features/webSockets/connectionSlice';
 import searchReducer from 'features/searches/searchSlice';
 import productsReducer from 'features/lists/productsSlice';
+import cartReducer from 'features/carts/cartSlice';
 
 export const store = configureStore({
   reducer: {
     connection: connectionReducer,
     search: searchReducer,
     products: productsReducer,
+    cart: cartReducer,
     [api.reducerPath]: api.reducer,
   },
   // Adding the api middleware enables caching, invalidation, polling,

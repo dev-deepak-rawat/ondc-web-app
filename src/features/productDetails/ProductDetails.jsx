@@ -1,9 +1,10 @@
+import { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { Button } from 'antd';
 import { selectProducts } from 'features/lists/productsSlice';
 import { useSelectMutation } from 'app/api';
-import { useEffect, useState } from 'react';
+import styles from 'features/productDetails/ProductDetails.module.css';
 
 export default function ProductDetails() {
   const [showSearchLoader, setShowSearchLoader] = useState(false);
@@ -48,6 +49,7 @@ export default function ProductDetails() {
         bppId,
         bppUri,
       }).unwrap();
+      navigate('/cart');
     } catch (err) {
       console.error(err);
     } finally {
@@ -56,9 +58,14 @@ export default function ProductDetails() {
   };
   return (
     <>
-      <div>ProductDetail</div>
+      <div className={styles.productContainer} onClick={handleClick}>
+        <img src={image} alt="product" className={styles.img} />
+        <div className={styles.title}>{name}</div>
+        <div className={styles.price}>₹{value}</div>
+        <div>{bppId}</div>
+      </div>
       <Button type="primary" onClick={handleClick} loading={showSearchLoader}>
-        Select
+        Add To Cart
       </Button>
     </>
   );
