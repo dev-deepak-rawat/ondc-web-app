@@ -5,6 +5,7 @@ import connectionReducer from 'features/webSockets/connectionSlice';
 import searchReducer from 'features/searches/searchSlice';
 import productsReducer from 'features/lists/productsSlice';
 import cartReducer from 'features/carts/cartSlice';
+import paymentReducer from 'features/payments/paymentSlice';
 
 export const store = configureStore({
   reducer: {
@@ -12,6 +13,7 @@ export const store = configureStore({
     search: searchReducer,
     products: productsReducer,
     cart: cartReducer,
+    payment: paymentReducer,
     [api.reducerPath]: api.reducer,
   },
   // Adding the api middleware enables caching, invalidation, polling,

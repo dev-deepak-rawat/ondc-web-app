@@ -4,6 +4,7 @@ import { isJsonString } from 'app/utils';
 import { addNewProducts } from 'features/lists/productsSlice';
 import { selectTransactionId } from 'features/webSockets/connectionSlice';
 import { setCartItem } from 'features/carts/cartSlice';
+import { setPaymentOrder } from 'features/payments/paymentSlice';
 
 export default function Connection({ cable }) {
   const dispatch = useDispatch();
@@ -25,10 +26,13 @@ export default function Connection({ cable }) {
                 dispatch(addNewProducts(payload));
                 break;
               case 'select':
-                console.log('connectionSlice cart', { payload });
                 dispatch(setCartItem(payload));
                 break;
               case 'init':
+                dispatch(setPaymentOrder(payload));
+                break;
+              case 'confirm':
+                console.log({ payload });
                 break;
               default:
                 return;

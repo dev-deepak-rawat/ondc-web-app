@@ -46,6 +46,15 @@ export const api = createApi({
         };
       },
     }),
+    confirm: builder.mutation({
+      query(body) {
+        return {
+          url: '/confirm',
+          method: 'POST',
+          body,
+        };
+      },
+    }),
     //getCartItems: builder.query({
     //  query: () => '/api/v2/cart_items?source=cart&platform=app&os=android',
     //  providesTags: ['Carts'],
@@ -76,4 +85,9 @@ export const api = createApi({
 
 // Export hooks for usage in functional components, which are
 // auto-generated based on the defined endpoints
-export const { useSearchMutation, useSelectMutation, useInitMutation } = api;
+export const {
+  useSearchMutation,
+  useSelectMutation,
+  useInitMutation,
+  useConfirmMutation,
+} = api;
